@@ -4,6 +4,7 @@ import { createServer as createServerHttp } from 'http';
 import './files/c.js';
 
 import { fileURLToPath } from 'url';
+import { readFile } from 'fs/promises';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -12,13 +13,19 @@ const random = Math.random();
 export let unknownObject;
 
 if (random > 0.5) {
-  import('./files/a.json', { assert: { type: 'json' } }).then((module) => {
-    unknownObject = module;
+  unknownObject = await readFile(path.resolve(__dirname, 'files/a.json'), {
+    encoding: 'utf8',
   });
+  // import('./files/a.json', { assert: { type: 'json' } }).then((module) => {
+  //   unknownObject = module;
+  // });
 } else {
-  import('./files/b.json', { assert: { type: 'json' } }).then((module) => {
-    unknownObject = module;
+  unknownObject = await readFile(path.resolve(__dirname, 'files/b.json'), {
+    encoding: 'utf8',
   });
+  // import('./files/b.json', { assert: { type: 'json' } }).then((module) => {
+  //   unknownObject = module;
+  // });
 }
 
 console.log(`Release ${release()}`);
