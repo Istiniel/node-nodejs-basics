@@ -7,7 +7,7 @@ const spawnChildProcess = async (args) => {
   const childUrl = path.resolve(__dirname, 'files', `script.js`);
 
   const child = spawn('node', [childUrl, ...args], {
-    stdio: [0, 1, 2, 'pipe'],
+    stdio: [0, 1, 2, 'ipc'],
   });
 };
 
