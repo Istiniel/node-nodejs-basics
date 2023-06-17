@@ -1,4 +1,4 @@
-import { writeFile, stat, mkdir, readdir, copyFile } from 'node:fs/promises';
+import { mkdir, readdir, copyFile } from 'node:fs/promises';
 import path from 'path';
 import getDirname from '../getDirname.js';
 
