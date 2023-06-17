@@ -7,3 +7,4 @@ export default function getDirname(url) {
 
   return __dirname;
 }
+
