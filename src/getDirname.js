@@ -1,5 +1,5 @@
 import path from 'path';
-import { fileURLToPath } from 'url';
+import { fileURLToPath } from 'node:url';
 
 export default function getDirname(url) {
   const __filename = fileURLToPath(url);
@@ -7,4 +7,3 @@ export default function getDirname(url) {
 
   return __dirname;
 }
-
